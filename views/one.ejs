@@ -1,0 +1,13 @@
+<html>
+<h2>Here is the single animal you want: </h2>
+  <p>Name: <%= user.name %></p>
+  <p>Age: <%= user.age %></p>
+  <p>Type: <%= user.type %></p>
+  <a href="/mongooses/<%= user._id %>/edit">edit</a>
+  <hr>
+  <form action="/mongooses/<%= user._id %>/destroy" method="post">
+    <input type="submit" value="delete">
+  </form>
+  <hr>
+  <a href="/">Back</a>
+</html>

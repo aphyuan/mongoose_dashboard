@@ -1,0 +1,22 @@
+<html>
+  <a href="/mongooses/new">Create a new animal</a>
+  <h2>Here are all animals:</h2>
+  <% for (var x in users) {%>
+    <p>Name: <%= users[x].name %></p>
+    <p>Age: <%= users[x].age %></p>
+    <p>Type: <%= users[x].type %></p>
+    <!-- the form to show a single animal -->
+    <form action="/mongooses/<%= users[x]._id %>">
+      <input type="submit" value="show" />
+    </form>
+    <!-- the form to edit a single animal -->
+    <form action="/mongooses/<%= users[x]._id %>/edit">
+      <input type="submit" value="edit" />
+    </form>
+    <!-- the form to delete a single animal from database -->
+    <form action="/mongooses/<%= users[x]._id %>/destroy" method="post">
+      <input type="submit" value="delete this animal">
+    </form>
+    <hr>
+    <% } %>
+</html>

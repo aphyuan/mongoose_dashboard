@@ -1,0 +1,14 @@
+<html>
+<h2>Here is the single animal you want to edit: </h2>
+  <form action="/mongooses/<%= user._id %>" method="post">
+  <input name="id" type="hidden" value="<%= user._id %>">
+  <p>Name: </p><input type="text" name="name" value="<%= user.name %>">
+  <p>Age: </p><input type="text" name="age" value="<%= user.age %>">
+  <p>Type: </p><input type="text" name="type" value="<%= user.type %>">
+  <input type="submit" value="update!">
+  </form>
+  <hr>
+  <a href="/">Back to the index</a>
+  <hr>
+  <a href="/mongooses/<%= user._id %>">Back to Show</a>
+</html>
