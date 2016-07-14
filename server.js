@@ -34,12 +34,7 @@ app.set('view engine', 'ejs');
 // Root Request
 app.get('/', function(req, res) {
     User.find({}, function(err, users){
-      if(err){
-        console.log('something went wrong! It is Casey fault! and Alex is a piece of shit!');
-      }else{
-        // var passuser = res.json(users);
-        console.log('it works, but Alex is still a piece of shit.');
-        console.log(users);
+      if(!err){
         res.render('index', {users});
       }
     })
@@ -51,15 +46,13 @@ app.get('/mongooses/new', function(req,res){
 // Add User Request
 var add;
 if(!add){
-var counter = 0;
+var counter = 1;
 }
 app.post('/mongooses', function(req, res) {
     console.log("POST DATA", req.body);
     var user = new User({_id:counter, name: req.body.name, age: req.body.age, type: req.body.type});
     user.save(function(err){
-      if(err){
-        console.log('something went wrong');
-      } else {
+      if(!err){
           counter++;
           add = true;
         console.log('successfully added a animal!');
